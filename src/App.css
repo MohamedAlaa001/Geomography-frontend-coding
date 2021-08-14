@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Repos */
+
+.repos {
+  margin: 1rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.repo-item {
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  display: flex;
+  /* align-items: center; */
+
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px 1px #000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.repo-item:last-child {
+  margin-bottom: 0;
+}
+
+.repo-item-img {
+  padding: 0 1.25rem;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.repo-item-detail {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.repo-item-detail .title strong {
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.repo-item-detail .block div {
+  display: inline-block;
+}
+
+.repo-item-detail .score {
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 0.25rem;
 }
