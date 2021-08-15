@@ -3,9 +3,6 @@
 This project was bootstraped using `create-react-app`
 
 ## Table of contents
-
-- [Github Trending Repos](#github-trending-repos)
-  - [Table of contents](#table-of-contents)
   - [Overview](#overview)
   - [Installation](#installation)
   - [NPM Scripts](#npm-scripts)
