@@ -1,3 +1,5 @@
+import PageLimit from './PageLimit';
+
 const Navbar = () => {
   return (
     <header>
@@ -6,6 +8,7 @@ const Navbar = () => {
           <span className='navbar-brand mb-0'>
             <h3>Github Trending Repos</h3>
           </span>
+          <PageLimit />
         </div>
       </nav>
     </header>

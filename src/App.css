@@ -4,8 +4,17 @@
   box-sizing: border-box;
 }
 
-/* Repos */
+/* navbar */
+header {
+  position: sticky !important;
+  top: 0;
+}
 
+nav.navbar {
+  border-bottom: 1px solid #000;
+}
+
+/* Repos */
 .repos {
   margin: 1rem 0;
 }
@@ -51,4 +60,13 @@
   margin-right: 0.5rem;
   border: 1px solid #000;
   border-radius: 0.25rem;
+}
+
+/* pagination */
+.pagination {
+  margin-bottom: 0;
+}
+
+.pagination .page-link {
+  color: #000;
 }

@@ -1,26 +1,37 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getRepos } from '../actions/repos';
+import InfiniteScroll from 'react-infinite-scroll-component';
+
+import { getRepos, setPage } from '../actions/repos';
 
 import RepoItem from './RepoItem';
 
-const Home = ({ getRepos, loading, repos }) => {
+const Home = ({ limit, page, setPage, getRepos, loading, repos }) => {
   useEffect(() => {
-    getRepos();
+    getRepos(limit, page);
     // eslint-disable-next-line
-  }, []);
+  }, [limit, page]);
   return repos && loading ? (
-    <h1>Loading...</h1>
+    <h3>Loading...</h3>
   ) : (
-    <div className='container'>
-      <div className='repos'>
-        {repos.map((repo) => (
-          <RepoItem key={repo.id} repo={repo} />
-        ))}
+    <Fragment>
+      <div className='container'>
+        <div className='repos'>
+          <InfiniteScroll
+            dataLength={repos.length}
+            hasMore={true}
+            next={() => setPage(page + 1)}
+            loader={<h3>Loading...</h3>}
+          >
+            {repos.map((repo) => (
+              <RepoItem key={repo.id} repo={repo} />
+            ))}
+          </InfiniteScroll>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
@@ -32,6 +43,8 @@ Home.propTypes = {
 const mapStateToProps = (state) => ({
   loading: state.repos.loading,
   repos: state.repos.repos,
+  limit: state.repos.limit,
+  page: state.repos.page,
 });
 
-export default connect(mapStateToProps, { getRepos })(Home);
+export default connect(mapStateToProps, { getRepos, setPage })(Home);

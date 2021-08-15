@@ -7,6 +7,10 @@ const RepoItem = ({ repo }) => {
     open_issues_count,
     created_at,
   } = repo;
+
+  const presentDate = new Date(Date.now()).getTime();
+  const oldDate = new Date(created_at).getTime();
+  const date = Math.ceil((presentDate - oldDate) / (24 * 60 * 60 * 1000));
   return (
     <div className='repo-item'>
       <img className='repo-item-img' src={owner.avatar_url} alt="User's Pic" />
@@ -18,7 +22,9 @@ const RepoItem = ({ repo }) => {
         <div className='block'>
           <div className='score'>Stars: {stargazers_count}</div>
           <div className='score'>Issues: {open_issues_count}</div>
-          <div className='date'>Time Interval by Owner Name</div>
+          <div className='date'>
+            Submitted {date} days ago by {owner.login}
+          </div>
         </div>
       </div>
     </div>
